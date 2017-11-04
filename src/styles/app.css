@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif|Droid+Sans');
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffffe0;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  color: #081306e7;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+ul {
+  padding-left: 8px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.post>span, .author, .timestamp {
+  display: block;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover, a:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color: #0351c5;
+}
+
+a:visited {
+  color: #0000ff;
+}
+
+input, textarea, select {
+  border: 2px solid #0351c5;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #010201e7;
+  padding: 5px 8px;
+  margin-top: 8px;
+  outline: none;
+  margin-left: 8px;
+}
+
+input[type=submit] {
+  border: 3px solid #0351c5;
+  cursor: pointer;
+  padding: 10px 10px;
+  border-radius: 3px;
+}
+
+select {
+  border-radius: 0px;
+  -webkit-appearance: none;
+  width: 115px;
+}
