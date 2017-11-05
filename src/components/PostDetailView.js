@@ -105,9 +105,7 @@ class PostDetail extends Component {
     let isPostDeleted = false
     for (var key in postList) {
       const item = postList[key]
-      console.log('ANSHULIKA kya pata ye chal jaaye :' + item.id)
       if (item.id === this.props.match.params.post_id && item.deleted) {
-        console.log('ANSHULIKA this si deleted item : ' + item.id)
         isPostDeleted = true
       }
     }
@@ -120,9 +118,6 @@ class PostDetail extends Component {
     ) : (
       <div>
         <SideNav sortCommentsBy={this.props.sortCommentsBy} />
-        {console.log(
-          'ANSHULIKA postList length ' + Object.keys(postList).length
-        )}
         <div style={{ width: '70%', float: 'left' }}>
           {postList &&
             Object.keys(postList).map(
