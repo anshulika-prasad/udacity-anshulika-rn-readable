@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import {
   editPost,
   fetchPost,
@@ -101,19 +101,37 @@ class PostDetail extends Component {
   }
 
   render () {
-    return (
+    let postList = this.props.post
+    let isPostDeleted = false
+    for (var key in postList) {
+      const item = postList[key]
+      console.log('ANSHULIKA kya pata ye chal jaaye :' + item.id)
+      if (item.id === this.props.match.params.post_id && item.deleted) {
+        console.log('ANSHULIKA this si deleted item : ' + item.id)
+        isPostDeleted = true
+      }
+    }
+
+    return isPostDeleted ? (
+      <div>
+        <h1 style={{ marginLeft: 50 }}> 404 page not found </h1>
+        <Link to='/'>Go back to Home</Link>
+      </div>
+    ) : (
       <div>
         <SideNav sortCommentsBy={this.props.sortCommentsBy} />
+        {console.log(
+          'ANSHULIKA postList length ' + Object.keys(postList).length
+        )}
         <div style={{ width: '70%', float: 'left' }}>
-          {this.props.post &&
-            Object.keys(this.props.post).map(
+          {postList &&
+            Object.keys(postList).map(
               k =>
                 k === this.props.match.params.post_id &&
-                !this.props.post[k].deleted && (
+                !postList[k].deleted && (
                   <div key={k}>
                     <h1>
-                      {this.props.post[k].title}(Votes:{' '}
-                      {this.props.post[k].voteScore}{' '}
+                      {postList[k].title} (Votes: {postList[k].voteScore}{' '}
                       <span className='clickable' id='plus-image'>
                         <TiVoteOUp
                           onClick={() => this.submitVote(k, 'upVote')}
@@ -126,14 +144,11 @@ class PostDetail extends Component {
                       </span>
                       )
                     </h1>
-                    <span className='author'>
-                      Author: {this.props.post[k].author}
-                    </span>
+                    <span className='author'>Author: {postList[k].author}</span>
                     <span className='timestamp'>
-                      Date:{' '}
-                      {new Date(this.props.post[k].timestamp).toDateString()}
+                      Date: {new Date(postList[k].timestamp).toDateString()}
                     </span>
-                    <p>{this.props.post[k].body}</p>
+                    <p>{postList[k].body}</p>
                     <span>
                       <span
                         className='clickable'
@@ -144,7 +159,7 @@ class PostDetail extends Component {
                       /{' '}
                       <span
                         className='clickable'
-                        onClick={() => this.deletePost(this.props.post[k].id)}
+                        onClick={() => this.deletePost(postList[k].id)}
                       >
                         Delete
                       </span>{' '}
