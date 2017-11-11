@@ -5,6 +5,7 @@ Udacity Readable assignment
 # Readable Project
 My submission for Udacity React & Redux course's assignment Readable
 
+
 * Install and start the API server
     - `git clone https://github.com/udacity/reactnd-project-readable-starter.git'`
     - `cd reactnd-project-readable-starter`
