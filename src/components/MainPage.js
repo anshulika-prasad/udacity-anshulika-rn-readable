@@ -26,7 +26,7 @@ class Home extends Component {
 
   render () {
     return (
-      <div>
+      <div style={{ backgroundColor: '#FFFFFF' }}>
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
           <h1 className='App-title'>Welcome to Udacity Readable</h1>
