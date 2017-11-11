@@ -13,7 +13,6 @@ My submission for Udacity React & Redux course's assignment Readable
     - `node server`
 
 * Install readable project
-- `download assignment upzip it`
 - `cd udacity-anshulika-rn-readable`
 - `npm install`
 - `npm start`
